@@ -9,10 +9,6 @@ minikube start --memory=10000 --cpus=4 --kubernetes-version=v1.15.2
 ```bash
 sudo minikube tunnel
 ```
-Or 
-```bash
-minikube tunnel
-```
 4. Download Istio
 ```bash
 curl -L https://git.io/getLatestIstio | ISTIO_VERSION=1.2.2 sh -
