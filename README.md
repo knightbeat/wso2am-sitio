@@ -51,8 +51,23 @@ kubectl get pods -n istio-system
 helm template install/kubernetes/helm/istio --namespace=istio-system -x templates/configmap.yaml --set global.disablePolicyChecks=false | kubectl -n istio-system replace -f -
 ```
 See: https://istio.io/docs/tasks/policy-enforcement/enabling-policy/
+
 11. Validate whether disablePolicyChecks has been set to false with
 ```bash
 kubectl -n istio-system get cm istio -o jsonpath="{@.data.mesh}" | grep disablePolicyChecks
 ```
+12. Follow the official documentation https://github.com/wso2/istio-apim/tree/1.0#istio-mixer-adapter-for-wso2-api-manager
 
+When an API is deleted,
+1. List the WSO2 artefacts installed in the istio environment
+```bash
+kubectl get rules -n istio-system
+kubectl get HTTPAPISpec
+kubectl get httpapispecbinding
+```
+2. Remove the WSO2 artefacts from the istio environment (e.g)
+```bash
+kubectl delete rules httpbinapi-rule -n istio-system
+kubectl delete HTTPAPISpec httpbinapi-apispec
+kubectl delete httpapispecbinding httpbinapi-binding
+```
