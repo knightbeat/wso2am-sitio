@@ -1,4 +1,6 @@
-# wso2am-sitio
+## WSO2 API Manager - Istio Integration
+### A Quick Copy/Paste & Setup Guide
+#### Setting up the Environment
 1. Install Minikube https://kubernetes.io/docs/tasks/tools/install-minikube/
 
 2. Start a Minikube environment
@@ -56,9 +58,13 @@ See: https://istio.io/docs/tasks/policy-enforcement/enabling-policy/
 ```bash
 kubectl -n istio-system get cm istio -o jsonpath="{@.data.mesh}" | grep disablePolicyChecks
 ```
-12. Follow the official documentation https://github.com/wso2/istio-apim/tree/1.0#istio-mixer-adapter-for-wso2-api-manager
+---------
 
-When an API is deleted,
+### Installation of the Demo Artefacts
+
+Follow the official documentation https://github.com/wso2/istio-apim/tree/1.0#istio-mixer-adapter-for-wso2-api-manager
+
+#### When an API is deleted,
 1. List the WSO2 artefacts installed in the istio environment
 ```bash
 kubectl get rules -n istio-system
